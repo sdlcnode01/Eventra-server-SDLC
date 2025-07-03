@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- title -->
+        <title>Organizers</title>
+
+        <!-- font awesome cdn -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/brands.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css"
+        />
+        <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/regular.min.css"">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/solid.min.css"
+        />
+
+        <!-- bootstrap css -->
+        <link
+            rel="stylesheet"
+            href="/bootstrap-5.3.5-dist/css/bootstrap.min.css"
+        />
+
+        <link rel="stylesheet" href="/css/organizers.css" />
+    </head>
+    <body>
+        <main>
+            <div class="container">
+                <div class="row flex-nowrap">
+                    <!-- sidebar -->
+                             <%- include('./layout/sidebar') %>
+
+                    <div class="col py-4 main">
+                        <div class="content container">
+                            <div class="mb-3">
+                                <h4>Organizers List</h4>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="px-5">Company Name</th>
+                                        <th>Joining Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Row 1 -->
+
+                                    <% organizerlists.forEach((organizer) => {
+                                    %>
+                                    <tr>
+                                        <td class="d-flex align-items-center">
+                                            <img
+                                                src="http://localhost:3005/<%= organizer.image %>"
+                                                class="rounded-circle me-3"
+                                                width="40"
+                                                height="40"
+                                                alt="avatar"
+                                            />
+                                            <%= organizer.company_name %>
+                                        </td>
+                                        <td>
+                                            <% if (organizer && organizer.createdAt) { %>
+                                            <%= new Date(organizer.createdAt).toISOString().slice(0, 10) %>
+                                            <% } else { %>
+                                            N/A
+                                            <% } %>
+                                        </td>
+                                        <td>
+                                            <a
+                                                href="/admin/organizerdetails/<%=organizer._id%>"
+                                            >
+                                                <button class="details-btn">
+                                                    Details
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- bootstrap icon -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+        />
+
+        <!-- popper js cdn -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <!-- Bootstrap js cdn -->
+        <script src="/bootstrap-5.3.5-dist/js/bootstrap.min.js"></script>
+    </body>
+</html>

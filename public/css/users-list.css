@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+  background-color: #FCFFEB;
+}
+a{
+    display: inline-block;
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+
+.sidebar {
+  background-color: #F5FFD3;
+  min-height: 100vh;
+  padding-top: 20px;
+  border-left: 3px solid rgb(240, 189, 189);
+}
+.sidelist {
+  color: #333A02;
+  font-weight: 500;
+}
+.sidebar .active {
+  font-weight: 500;
+  color: #333A02;
+}
+.sidebar .nav-link:hover {
+  background-color: #fcffeb;
+}
+
+
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 0;
+  overflow: hidden;
+  transition: all 0.35s ease-in-out;
+  width: 100%;
+  background-color: #FCFFEB;
+}
+
+.navbar-expand .navbar-nav {
+  margin-left: auto;
+}
+
+/* Sidebar Elements Style */
+
+.sidebar-nav {
+  flex-grow: 1;
+  list-style: none;
+  margin-bottom: 0;
+  /* padding-left: 0;
+    margin-left: 0; */
+}
+
+.sidebar-header {
+  color: #62a305;
+  font-size: 16px;
+  font-weight: semibold;
+  padding: 1.5rem 1.5rem 0.375rem;
+  /* padding: 10px; */
+}
+
+a.sidebar-link {
+  padding: 0.645rem 1.625rem;
+  /* color: #333A02; */
+  position: relative;
+  display: block;
+  font-size: 0.875rem;
+}
+
+.sidebar-item {
+  color: #333a02;
+  font-size: 16px;
+}
+.sidebar-item a {
+  color: #333a02;
+}
+.logout {
+  color: #000000;
+  /* font-size: 16px; */
+  font-weight: semibold;
+}
+
+body {
+  background-color: #f5ffdd; /* light green background */
+  font-family: "Segoe UI", sans-serif;
+}
+.organizers-card {
+  background-color: #fcffeb;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.details-btn {
+  background-color: #9de84d;
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 6px 16px;
+  border-radius: 8px;
+}
+.details-btn:hover {
+  background-color: #85d13b;
+}
+.table td,
+.table th {
+  vertical-align: middle;
+}
+.table{
+  background-color: #FCFFEB;
+  border-radius: 20px;
+  padding: 20px 30px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08); /* matches soft shadow in Figma */
+  width: fit-content;
+  margin: 0 auto; 
+}
+
+.sidebar .user-list{
+  font-weight: 500;
+  color: #62A305;
+}
+.table{
+  max-width: 900px;
+  width: 100%;
+  background-color: #FCFFEB;
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}

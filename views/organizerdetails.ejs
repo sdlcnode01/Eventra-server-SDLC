@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- title -->
+    <title>Organizer 1</title>
+
+    <!-- font awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/brands.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css"
+    />
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/regular.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/solid.min.css"
+    />
+
+    <!-- bootstrap css -->
+    <link
+      rel="stylesheet"
+      href="/bootstrap-5.3.5-dist/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="/css/organizer1.css" />
+        <link rel="stylesheet" href="./css/frame20.css" />
+
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="row flex-nowrap">
+          <!-- sidebar -->
+                    <%- include('./layout/sidebar') %>
+
+          <!-- Right Content -->
+          <div class="col py-4 px-3">
+            <div class="mb-3">
+              <a href="/admin/organizerlist" class="text-dark text-decoration-none d-inline-flex align-items-center">
+                <i class="bi bi-arrow-left fs-4 me-2"></i> <!-- Bootstrap Icon -->
+              </a>
+            </div>
+            <div class="card shadow-sm rounded-3 border-0" style="max-width: 500px;">
+              <div class="card-body p-4">
+                <h5 class="fw-bold mb-4">Details</h5>
+                <div class="row border-bottom py-2">
+                  <div class="col-6 fw-semibold text-muted">Company Name</div>
+                  <div class="col-6 d-flex justify-content-between align-items-center">
+                    <span><%= organizerData?.company_name %></span>
+                    <img src="http://localhost:3005/<%= organizerData.image %>" class="rounded-circle" alt="Avatar" style="width: 40px; height: 40px;" />
+                  </div>
+                </div>
+
+                <div class="row border-bottom py-2">
+                  <div class="col-6 fw-semibold text-muted">Joining Date</div>
+                  <div class="col-6">
+                    <% if (organizerData && organizerData.createdAt) { %>
+                      <%= new Date(organizerData.createdAt).toISOString().slice(0, 10) %>
+                    <% } else { %>
+                      N/A
+                    <% } %>
+                  </div>
+                </div>
+
+                <div class="row border-bottom py-2">
+                  <div class="col-6 fw-semibold text-muted">Phone Number</div>
+                  <div class="col-6"><%= organizerData?.phone%></div>
+                </div>
+
+                <div class="row border-bottom py-2">
+                  <div class="col-6 fw-semibold text-muted">Email</div>
+                  <div class="col-6"><%= organizerData?.email%></div>
+                </div>
+
+                <div class="text-end pt-3">
+                  <button class="btn text-light " data-bs-toggle="modal" data-bs-target="#deleteOrganizerModal">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Bootstrap Modal -->
+          <div class="modal fade" id="deleteOrganizerModal" tabindex="-1" aria-labelledby="deleteOrganizerLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content delete-box">
+                <!-- Header -->
+                <div class="modal-header delete-header bg-danger text-white">
+                  <h5 class="modal-title txt" id="deleteOrganizerLabel">Are you sure you want to delete?</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- Body -->
+                <div class="modal-body delete-body">
+                  <p class="mb-2 text-para text-muted">Please provide a reason for deletion</p>
+                  <textarea id="deleteReason" class="form-control" placeholder="Enter reason (optional)" rows="3"></textarea>
+                </div>
+
+                <!-- Footer -->
+                <div class="modal-footer delete-footer">
+                  <button type="button" class="btn btn-cancel btn-light" data-bs-dismiss="modal">Cancel</button>
+                  <form action="/admin/user/deleteaccount/<%= organizerData._id %>" method="POST">
+                    <input type="hidden" name="admin_msg" id="hiddenDeleteReason" />
+                    <button type="submit" class="btn btn-delete btn-danger">Delete</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Right Content -->
+        </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- bootstrap icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+
+    <!-- popper js cdn -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap js cdn -->
+<script src="/bootstrap-5.3.5-dist/js/bootstrap.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('deleteOrganizerModal');
+    const reasonInput = document.getElementById('deleteReason');
+    const hiddenReasonInput = document.getElementById('hiddenDeleteReason');
+
+    // Reset reason when modal opens
+    modal.addEventListener('show.bs.modal', function () {
+      reasonInput.value = '';
+      hiddenReasonInput.value = '';
+    });
+
+    // Transfer reason before form submission
+    modal.querySelector('form').addEventListener('submit', function () {
+      hiddenReasonInput.value = reasonInput.value.trim();
+    });
+  });
+</script>
+  </body>
+</html>

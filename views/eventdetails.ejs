@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- title -->
+    <title>Admin Dashboard</title>
+
+    <!-- font awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/brands.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css"
+    />
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/regular.min.css"">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/solid.min.css"
+    />
+
+    <!-- bootstrap css -->
+    <link
+      rel="stylesheet"
+      href="/bootstrap-5.3.5-dist/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="row flex-nowrap">
+          <!-- sidebar -->
+                  <%- include('./layout/sidebar') %>
+
+          <div class="col py-4 main">
+            <div class="content container">
+              <div class="mb-3">
+                <h4>Event Details</h4>
+              </div>
+              <div class="chart-card">
+                <h3>Project Status</h3>
+                <canvas id="eventChart"></canvas>
+                <ul class="legend">
+                    <li><span class="dot live"></span> Live Events</li>
+                    <li><span class="dot upcoming"></span> Upcoming Events</li>
+                    <li><span class="dot completed"></span> Completed Events</li>
+                    <li><span class="dot canceled"></span> Canceled Events</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="col-auto">
+            <div class="details-section bg-white rounded-3 p-4 shadow-sm">
+              <h5 class="mb-4">Details</h5>
+              
+              <div class="details-item mb-3">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="text-muted">Company Name</span>
+                  <div class="d-flex align-items-center">
+                    <span class="me-2">eventra</span>
+                    <img src="./image/profile.png" alt="Profile" class="rounded-circle" width="24" height="24">
+                  </div>
+                </div>
+              </div>
+
+              <div class="details-item mb-3">
+                <div class="d-flex justify-content-between mb-2">
+                  <span class="text-muted">Joining Date</span>
+                  <span>10.05.2024</span>
+                </div>
+              </div>
+
+              <div class="details-item mb-3">
+                <div class="d-flex justify-content-between mb-2">
+                  <span class="text-muted">Phone Number</span>
+                  <span>+91-123456780</span>
+                </div>
+              </div>
+
+              <div class="details-item mb-4">
+                <div class="d-flex justify-content-between mb-2">
+                  <span class="text-muted">Email</span>
+                  <span>shaktisharma2025@gmail.com</span>
+                </div>
+              </div>
+
+              <button class="btn btn-danger w-100">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </main>
+    <!-- bootstrap icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+
+    <!-- popper js cdn -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap js cdn -->
+<script src="/bootstrap-5.3.5-dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

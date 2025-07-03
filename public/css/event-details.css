@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+  background-color: #F5FFD3;
+}
+a{
+    display: inline-block;
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+
+.sidebar {
+  background-color: #F5FFD3;
+  min-height: 100vh;
+  padding-top: 20px;
+  border-left: 3px solid rgb(240, 189, 189);
+}
+.sidelist {
+  color: #333A02;
+  font-weight: 500;
+}
+.sidebar .active {
+  font-weight: 500;
+  color: #62A305;
+}
+.sidebar .nav-link:hover {
+  background-color: #fcffeb;
+}
